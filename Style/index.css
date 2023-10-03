@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;500;900&display=swap');
+#main {
+    animation: fadein 2s;
+  }
+  @keyframes fadein {
+    from { opacity: 0}
+    to   { opacity: 1}
+  }
+
+body {
+    width: 90%;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    font-family: Lato;
+    background-color: #f8f8f8;
+
+}
+
+body h1 {
+    margin-top: 60px;
+    text-align: left;
+    margin-left: 10%;
+    margin-bottom: 5px;
+    letter-spacing: 0.1em;
+    font-family: Lato;
+    font-size: 900;
+    color: hsla(0, 0%, 0%, 0.8);
+    text-shadow: 0 0 5px hsla(0, 0%, 0%, .2);
+
+}
+
+.navbar {
+    width: 100%;
+    height: 4%;
+    margin: 15px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+div.navbarContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 50px;
+    font-size: 13px;
+    opacity: 0.8;
+} 
+
+div.navbarContainer a {
+    font-family: Lato;
+    font-weight:500;
+    text-decoration: none;
+    color: black;
+    opacity: 0.8;
+    text-shadow: 0 0 2px hsla(0, 0%, 0%, .4);
+}
+
+div.navbarContainer a:hover {
+    opacity: 0.4;
+}
+
+div.navbarContainer a:active {
+    opacity: 0.2;
+}
+
+
+div.container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 250px 150px;
+    gap: 5px;
+    grid-auto-flow: dense;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .15),
+    0 2px 4px rgba(0, 0, 0, .12);
+}   
+
+.gallery-item .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery-item .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.gallery-item:hover .image img {
+    transform: scale(1.2);
+    opacity: 0.4;
+}
+
+.gallery-item .text {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 4;
+    transition: 0.3s ease-in-out;
+}
+
+.gallery-item:hover .text {
+    color: hsl(0, 0%, 40%);
+    opacity: 1;
+    animation: move-down .3s linear;
+    padding: 1em;
+    width: 100%;
+}
+
+.w-1 {
+    grid-column: span 1.2;
+}.w-2 {
+    grid-column: span 1.5;
+}.w-3 {
+    grid-column: span 1.8;
+}.w-4 {
+    grid-column: span 2;
+}.w-5 {
+    grid-column: span 2.5;
+}.w-6 {
+    grid-column: span 3;
+}
+
+
+.h-1 {
+    grid-row: span 1.2;
+}.h-2 {
+    grid-row: span 1.5;
+}.h-3 {
+    grid-row: span 1.8;
+}.h-4 {
+    grid-row: span 2;
+}.h-5 {
+    grid-row: span 2.5;
+}.h-6 {
+    grid-row: span 3;
+}
+
+
+@media screen and (max-width:800px) {
+    div.container {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+
+
+
+@keyframes move-down {
+    0% {
+        top: 10%;
+    }
+    50% {
+        top: 35%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+
+@keyframes fadein {
+    from { opacity: 0.5}
+    to   { opacity: 1}
+  }
+
+  @keyframes fadeout {
+    from { opacity: 1}
+    to   { opacity: 0.5}
+  }
+
+
+/* Position image popup window and text */
+.img-window {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .img-window img {
+    max-height: 80vh;
+    max-width: 80vw;
+    animation: fadein 0.8s;
+
+  }
+  
+  .imgTxt {
+    position: fixed;
+    font-size: 14px;
+    color: white;
+    text-align: left;
+    z-index: 1;
+    opacity: 0.8;
+    animation: fadein 0.8s;
+
+  }
+  
+  /* Position image popup buttons */
+  .img-btn-prev, .img-btn-next {
+    display: block;
+    padding: 6px 10px;
+    border-radius: 2px;
+    position: fixed;
+    z-index: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  
+  /* With these changes, the text, next, and previous buttons will always be positioned relative to the image popup, ensuring that they maintain the same distance from the image, regardless of screen size or image dimensions. */
+  
+  
+  
+  
+  
+  
+
+
+
+/* Pop up window */
+/* ------ ----------------------------------*/
+/* .img-window {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.img-window img {
+    max-height: 80vh;
+    max-width: 80vw;
+} */
+
+/*  image */
+/* .img-btn-next {
+    display: block;
+    padding: 6px 10px;
+    border-radius: 2px;
+    position: fixed;
+    top:48vh;
+    z-index: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+} */
+
+/* .img-btn-prev {
+    display: block; 
+    padding: 6px 10px;
+    border-radius: 2px;
+    position: fixed;
+    top:48vh;
+    z-index: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+} */
+
+.img-btn-next:hover {
+    opacity: 1;
+}
+
+.img-btn-prev:hover {
+    opacity: 1;
+}
+/* 
+.imgTxt {
+    display: block; 
+    padding: 6px 10px;
+    border-radius: 2px;
+    position: fixed;
+    top:20vh;
+    left: 83vw;
+    z-index: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    text-transform: uppercase;
+} */
